@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Trang danh sách User</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/template.xhtml" >
+            <ui:define name="content" >
+                <p:outputPanel id="opnList" >
+                    <p:panel header="Danh sách các USER" >
+                            <p:dataTable value="#{userController.lstUser}" var="entity" >
+                                <p:column headerText="Họ và tên">
+                                    <p:outputLabel value="#{entity.fullName}" />
+                                </p:column>
+                                <p:column headerText="Số điện thoại" >
+                                    <p:outputLabel value="#{entity.telNumber}" />
+                                </p:column>
+                                 <p:column headerText="Trạng thái hoạt động" >
+                                     <p:outputLabel value="đang hoạt động" rendered="#{entity.status eq '1'}" />
+                                     <p:outputLabel value="không hoạt động" rendered="#{entity.status eq '0'}" />
+                                </p:column>
+                                <p:column headerText="Last time change password">
+                                    <p:outputLabel value="#{loginController.converFormatDate(entity.lastTimeCHGPWD)}" />
+                                </p:column>
+                            </p:dataTable>
+                        </p:panel>
+                </p:outputPanel>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

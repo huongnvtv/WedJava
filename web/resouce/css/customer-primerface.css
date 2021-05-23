@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 24, 2020, 7:46:16 PM
+    Author     : Nguyễn Tiến Dũng
+*/
+
+.ui-outputlabel .ui-outputlabel-rfi {
+    color: red;
+}
+
+.ui-widget-header .ui-inputfield, .ui-widget-content .ui-inputfield {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.ui-state-error {
+    border: 1px solid #f03369 !important;
+    color: #f03369;
+}

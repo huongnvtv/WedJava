@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resouce/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resouce/css/customer-primerface.css" />
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <link type="text/css" rel="stylesheet" href="/project/faces/javax.faces.resource/theme.css?ln=primefaces-glass-x" />
+        <style>
+            #logo{
+                font-weight: bold;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div>
+            <ui:insert name="header" >
+                <ui:include src="header.xhtml" />
+            </ui:insert>
+        </div>
+        <div>
+            <h:form id="form_main" enctype="multipart/form-data" >
+                <p:messages id="messages" showDetail="true" showSummary="false" closable="true" />
+                <ui:insert name="content">
+                    <ui:include src="content.xhtml" />
+                </ui:insert>
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="Có" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                    <p:commandButton value="Không" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+                </p:confirmDialog> 
+            </h:form>
+            <p:ajaxStatus style="display:block;margin-bottom:2em;height:24px;">
+                <f:facet name="start">
+                    <p:graphicImage value="resouce/images/loading.gif" />
+                </f:facet>
+                <f:facet name="complete">
+                    <h:outputText value="" />
+                </f:facet>
+            </p:ajaxStatus>
+             <p:ajaxStatus onstart="PF('statusDialog').show();"
+                          onsuccess="PF('statusDialog').hide();"/>
+            <p:dialog id="status_dialog" widgetVar="statusDialog" modal="true"
+                      draggable="false" closable="false" resizable="false"
+                      showHeader="false">
+                <p:graphicImage value="/resouce/images/loading.gif" />
+            </p:dialog>   
+        </div>
+        <div style="margin-top: 300px">
+            <ui:insert name="footer">
+                <ui:include src="footer.xhtml" />
+            </ui:insert>
+        </div>
+    </h:body>
+</html>
+

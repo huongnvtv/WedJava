@@ -1,0 +1,25 @@
+label{
+    color: blue;
+    font-weight: bold;
+}
+
+.style1{
+    color: yellow;
+    font-size: 12px;
+}
+
+.style2{
+    color: green;
+}
+
+*{
+    font-family: tahoma;
+}
+
+label, button{
+    color: brown;
+}
+
+.text-green{
+    color: green !important;
+}
